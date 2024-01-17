@@ -1,3 +1,2 @@
-# kasir
-#test readme
-#test kedua
+# Aplikasi Kasir
+# Belajar laravel 
