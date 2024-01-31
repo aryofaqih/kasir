@@ -17,6 +17,15 @@ class UserController extends Controller
         return view('admin.master.user.list',$data);
     }
 
+    public function profile(){
+        $data = array(
+            'title' => 'Setting Profile',
+            'data_user' => User::all(),
+        );
+
+        return view('profile',$data);
+    }
+
     public function store(Request $request){
         User::create([
             'name' => $request->name,
@@ -38,6 +47,18 @@ class UserController extends Controller
             ]);
 
         return redirect('user')->with('success', 'data berhasil diubah');
+    }
+
+    public function updateprofile(Request $request, $id){
+        User::where('id', $id)
+            ->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'role' => $request->role,
+            ]);
+
+        return redirect('profile')->with('success', 'data berhasil diubah');
     }
 
     public function destroy($id){
