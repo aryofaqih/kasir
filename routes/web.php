@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\JenisBarangController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\DiskonController;
+use App\Http\Controllers\TransaksiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,3 +43,7 @@ Route::post('/setdiskon/update/{id}', [DiskonController::class, 'update']);
 //RU setting diskon
 Route::get('/profile', [UserController::class, 'profile']);
 Route::post('/profile/updateprofile/{id}', [UserController::class, 'updateprofile']);
+
+//data transaksi
+Route::get('/transaksi', [TransaksiController::class, 'index']);
+Route::get('/transaksi/create', [TransaksiController::class, 'create']);
